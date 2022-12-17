@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './dashboard/admin-dashboard.component';
 import { AdminHomeComponent } from './home/admin-home.component';
 import { AdminModulesComponent } from './dashboard/modules/admin-modules.component';
-import { AddComponent } from './dashboard/modules/add/add.component';
+import { AdminModuleComponent } from './dashboard/modules/module/module.component';
 
 const routes: Routes = [
   {
@@ -17,12 +17,10 @@ const routes: Routes = [
       {
         path: 'modules',
         component: AdminModulesComponent,
-        children: [
-          {
-            path: 'create',
-            component: AddComponent,
-          },
-        ],
+      },
+      {
+        path: 'modules/:id',
+        component: AdminModuleComponent,
       },
     ],
   },

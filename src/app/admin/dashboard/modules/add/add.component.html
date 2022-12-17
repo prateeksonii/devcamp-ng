@@ -1,7 +1,12 @@
-<h1 class="text-3xl font-bold">Create new module</h1>
-<form class="my-8">
-  <div class="flex flex-col gap-1">
-    <label for="name">Module name</label>
-    <input type="text" name="name" class="bg-zinc-800 p-2 rounded">
+<div class="fixed left-0 right-0 top-0 bottom-0 bg-opacity-70 bg-zinc-800 grid place-items-center" (click)="close()">
+  <div class="w-1/3 bg-zinc-900 p-8 rounded-lg relative" (click)="avoidPropagation($event)">
+    <h1 class="text-3xl font-bold">Create new module</h1>
+    <form class="mt-8" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="flex flex-col gap-1">
+        <label for="name">Module name</label>
+        <input type="text" formControlName="name" class="bg-zinc-800 p-2 rounded" placeholder="New Module">
+      </div>
+      <button type="submit" class="bg-green-600 py-2 px-4 rounded-md mt-4">Create</button>
+    </form>
   </div>
-</form>
+</div>

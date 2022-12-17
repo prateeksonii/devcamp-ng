@@ -1,8 +1,16 @@
-<div class="p-8">
+<div class="p-8" (keydown.esc)="closeModal()" tabindex="0">
   <div class="text-right">
-    <a routerLink="create" class="border-2 border-green-400 text-green-400 py-3 px-6 rounded-lg">Create New</a>
+    <button class="border-2 border-green-400 text-green-400 py-3 px-6 rounded-lg" (click)="openModal()">
+      Create New
+    </button>
   </div>
   <div class="p-8">
-    <router-outlet></router-outlet>
+    <ul class="space-y-2">
+      <li *ngFor="let module of modules;">
+        <a class="block p-3 bg-zinc-800 rounded-md text-xl hover:bg-green-600 transition-all cursor-pointer"
+          routerLink="{{module.id}}">{{module.name}}</a>
+      </li>
+    </ul>
   </div>
 </div>
+<app-admin-modules-add *ngIf="showModal" (closeFunc)="closeModal()"></app-admin-modules-add>
